@@ -290,10 +290,10 @@
             }
 
             // Dodavanje podataka za uplatu
-            doc.text('Podaci za uplatu:', 15, bottomY - 30);
-            doc.text('Banka: UniCredit Bank', 15, bottomY - 25);
-            doc.text('Vlasnik racuna: Ilija Zadro', 15, bottomY - 20);
-            doc.text('Broj racuna: 3381602285945933', 15, bottomY - 15);
+            //doc.text('Podaci za uplatu:', 15, bottomY - 30);
+            //doc.text('Banka: UniCredit Bank', 15, bottomY - 25);
+            //doc.text('Vlasnik racuna: Ilija Zadro', 15, bottomY - 20);
+            //doc.text('Broj racuna: 3381602285945933', 15, bottomY - 15);
             doc.setDrawColor(0, 0, 0);
             doc.line(15, bottomY - 12, 195, bottomY - 12); // Horizontal line below payment details
 
@@ -308,7 +308,7 @@
             
 
             // Preuzimanje PDF-a
-            doc.save('racun.pdf');
+            doc.save('ponuda.pdf');
         }
     </script>
 </body>
