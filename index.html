@@ -237,6 +237,14 @@
             return parseFloat(value).toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
         }
 
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0'); 
+            const year = date.getFullYear();
+            return `${day}/${month}/${year}`;
+        }
+
         function generatePDF() {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
@@ -247,6 +255,10 @@
             const postalCode = document.getElementById('postalCode').value;
             const city = document.getElementById('city').value;
             const date = document.getElementById('date').value;
+
+            // Format the date
+            const formattedDate = formatDate(date); 
+            
             // Podaci za tablicu
             const items = document.querySelectorAll('.item');
             const quantities = document.querySelectorAll('.quantity');
@@ -272,7 +284,7 @@
             doc.text(`${recipient}`, 15, 85);
             doc.text(`${address}`, 15, 90);
             doc.text(`${postalCode}, ${city}`, 15, 95); // Adjusted position
-            doc.text(`Datum: ${date}`, 157, 90); // Adjusted position
+            doc.text(`Datum: ${formattedDate}`, 157, 90); // Adjusted position
 
             // Dodavanje tablice
             doc.autoTable({
